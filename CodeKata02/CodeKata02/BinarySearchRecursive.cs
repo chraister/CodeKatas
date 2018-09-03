@@ -15,7 +15,12 @@ namespace CodeKata02
             }
         }
 
-        public int search(int searchValue, int leftIndex, int RightIndex)
+        public int search(int searchValue)
+        {
+            return search(searchValue,0, numbers.Length-1);
+        }
+
+        private int search(int searchValue, int leftIndex, int RightIndex)
         {
             int midIndex;
 
@@ -25,17 +30,18 @@ namespace CodeKata02
 
                 if (midIndex == searchValue)
                 {
+                    Console.WriteLine("recursive search found the value at index:" + midIndex);
                     return midIndex;
                 }
                 else
                 {
                     if (numbers[midIndex] > searchValue)
                     {
-                        search(searchValue, leftIndex, midIndex - 1);
+                        return search(searchValue, leftIndex, midIndex - 1);
                     }
                     else
                     {
-                        search(searchValue, midIndex + 1, RightIndex);
+                        return search(searchValue, midIndex + 1, RightIndex);
                     }
                 }
             }

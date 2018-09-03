@@ -27,6 +27,7 @@ namespace CodeKata02
 
                 if (numbers[midIndex] == searchValue)
                 {
+                    Console.WriteLine("iterative search found the value at index:" + midIndex);
                     return midIndex;
                 }
                 else
